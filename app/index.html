@@ -7,6 +7,7 @@
     <title>ЛесТорг - Главная</title>
     <link rel="stylesheet" href="./css/style.min.css">
     <script src="./js/menu.min.js"></script>
+    <script src="./js/scrollTo.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                     <div class="header__nav-section">
                         <ul class="header__nav-list">
                             <li class="header__nav-item">
-                                <a href="/goods.html" class="header__nav-link">Пиломатериалы</a>
+                                <a href="./goods.html" class="header__nav-link">Пиломатериалы</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-link">Столярный цех</a>
@@ -185,7 +186,7 @@
             </ul>
         </div>
     </section>
-    <section class="callback">
+    <section class="callback" id="callback">
         <div class="callback__inner section__inner">
             <p class="callback__title">Оставьте заявку и мы свяжемся с Вами</p>
             <form class="callback__form" name="callback" action="/" method="GET">
@@ -195,7 +196,7 @@
                     placeholder="+7 (000) 000-00-00">
                 <input class="callback__form-input" type="text" name="callback__form-email" id="callback__form-email"
                     placeholder="Email">
-                <button class="callback__form-submit" type="submit">Отправить</button>
+                <button class="callback__form-submit button" type="submit">Отправить</button>
             </form>
         </div>
     </section>

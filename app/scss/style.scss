@@ -262,6 +262,28 @@ body {
     }
 }
 
+.button {
+    @include Onest();
+    @include fsz-menu();
+
+    & {
+        display: inline-block;
+        padding: 10px;
+        color: var(--white-color);
+        outline: none;
+        border: none;
+        background-color: var(--link-color);
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        transform: translate(1px, 1px);
+        background-color: var(--link-active-color);
+    }
+}
+
 // Hero
 .hero {
     position: relative;
@@ -556,6 +578,8 @@ body {
                 width: 100%;
                 flex-direction: column;
                 align-items: center;
+                gap: 5px;
+                margin-bottom: 10px;
             }
 
             .contacts {
@@ -835,7 +859,13 @@ body {
         }
     }
 
+    &__button {
+        margin-top: 20px;
+        text-align: center;
+    }
+
     @media screen and (max-width: 860px) {
+
         &__item,
         &__item:nth-child(2n) {
             flex-direction: column;
@@ -1045,15 +1075,9 @@ body {
     }
 
     &__title,
-    &__form-input,
-    &__form-submit {
+    &__form-input {
         @include Onest();
         @include fsz-menu();
-    }
-
-    &__form-input,
-    &__form-submit {
-        padding: 10px;
     }
 
     &__title {
@@ -1068,24 +1092,11 @@ body {
         gap: 20px;
 
         &-input {
+            padding: 10px;
             background: none;
             border: none;
             border-bottom: 1px solid var(--link-color);
             outline: none;
-        }
-
-        &-submit {
-            color: var(--white-color);
-            outline: none;
-            border: none;
-            background-color: var(--link-color);
-            cursor: pointer;
-        }
-
-        &-submit:focus,
-        &-submit:active {
-            transform: translate(1px, 1px);
-            background-color: var(--link-active-color);
         }
     }
 
