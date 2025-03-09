@@ -54,7 +54,9 @@ $size-min: 390px;
 
     // Font - sizes
     --fsz-hero-header: 60px;
+    --fsz-headers: 30px;
     --fsz-menu: 26px;
+    --fsz-middle: 20px;
     --fsz-main: 18px;
     --fsz-small: 16px;
     --fsz-exsmall: 14px;
@@ -66,6 +68,19 @@ $size-min: 390px;
 }
 
 // Fonts - Fluid Typography
+@mixin fsz-headers {
+    font-size: var(--fsz-headers);
+
+    @media screen and (max-width: $size-fullhd) {
+        // fsz = 30px on 1900px width   and   20px on 390px
+        // divider = on max width (1900px - 390px) / 30px - 20px
+        // 1510 / 10 = 151
+        font-size: clamp(var(--fsz-middle),
+                calc(var(--fsz-middle) + (100vw - $size-min) / 151),
+                var(--fsz-headers));
+    }
+}
+
 @mixin fsz-menu {
     font-size: var(--fsz-menu);
 
@@ -118,6 +133,7 @@ $size-min: 390px;
     }
 }
 
+// General
 * {
     margin: 0;
     padding: 0;
@@ -131,6 +147,13 @@ li {
 
 a {
     text-decoration: none;
+}
+
+table,
+tr,
+td,
+th {
+    border: none;
 }
 
 html {
@@ -154,6 +177,15 @@ body {
     width: 90%;
     max-width: calc(2048px * 0.9);
     margin: 0 auto;
+}
+
+.section__title {
+    @include fsz-headers();
+
+    & {
+        text-align: center;
+        font-weight: 700;
+    }
 }
 
 .logo {
@@ -230,6 +262,7 @@ body {
     }
 }
 
+// Hero
 .hero {
     position: relative;
     width: 100%;
@@ -413,6 +446,7 @@ body {
     }
 }
 
+// Header
 .header {
     position: fixed;
     top: 0;
@@ -559,6 +593,7 @@ body {
     }
 }
 
+// Footer
 .footer {
     &__inner {
         display: flex;
@@ -728,7 +763,8 @@ body {
     }
 }
 
-.about {
+// Goods / About
+.goods {
     &__inner {
         display: flex;
         flex-direction: column;
@@ -736,7 +772,7 @@ body {
         gap: 40px;
     }
 
-    &__lumber {
+    &__item {
         display: flex;
         width: 100%;
         gap: 4%;
@@ -744,7 +780,7 @@ body {
         justify-content: space-between;
     }
 
-    &__lumber:nth-child(2n) {
+    &__item:nth-child(2n) {
         flex-direction: row-reverse;
     }
 
@@ -778,10 +814,30 @@ body {
         }
     }
 
-    @media screen and (max-width: 860px) {
+    &__prices {
+        display: block;
+        margin-top: 20px;
 
-        &__lumber,
-        &__lumber:nth-child(2n) {
+        &-header {
+            font-weight: 700;
+        }
+
+        &-row {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        &-cell {
+            width: 40%;
+            padding: 3px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--link-color);
+        }
+    }
+
+    @media screen and (max-width: 860px) {
+        &__item,
+        &__item:nth-child(2n) {
             flex-direction: column;
         }
 
@@ -800,8 +856,17 @@ body {
             padding-top: 30px;
         }
     }
+
+    @media screen and (max-width: $size-min) {
+        &__prices {
+            &-cell {
+                width: 50%;
+            }
+        }
+    }
 }
 
+// Advantages
 .advantages {
     background-color: var(--bg-secondary-color);
 
@@ -810,13 +875,7 @@ body {
     }
 
     &__title {
-        @include fsz-menu();
-
-        & {
-            text-align: center;
-            font-weight: 700;
-            padding-bottom: 30px;
-        }
+        padding-bottom: 30px;
     }
 
     &__list {
@@ -885,19 +944,14 @@ body {
     }
 }
 
+// Assortment
 .assortment {
     &__inner {
         padding: 50px 0 40px 0;
     }
 
     &__title {
-        @include fsz-menu();
-
-        & {
-            text-align: center;
-            font-weight: 700;
-            padding-bottom: 30px;
-        }
+        padding-bottom: 30px;
     }
 
     &__list {
@@ -977,6 +1031,7 @@ body {
     }
 }
 
+// Callback Form
 .callback {
     background-color: var(--bg-secondary-color);
 
