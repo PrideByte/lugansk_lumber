@@ -7,6 +7,7 @@
     <title>ЛесТорг - Главная</title>
     <link rel="stylesheet" href="./css/style.min.css">
     <script src="./js/menu.min.js"></script>
+    <script src="./js/scrollTo.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                     <div class="header__nav-section">
                         <ul class="header__nav-list">
                             <li class="header__nav-item">
-                                <a href="#" class="header__nav-link">Пиломатериалы</a>
+                                <a href="./goods.html" class="header__nav-link">Пиломатериалы</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-link">Столярный цех</a>
@@ -93,6 +94,9 @@
                             <p class="goods__prices-cell">280,00 руб/м.п.</p>
                         </li>
                     </ul>
+                    <div class="goods__button">
+                        <a href="#callback" class="button">Оформить заказ</a>
+                    </div>
                 </div>
                 <div class="goods__picture">
                     <img class="goods__picture-img" src="./images/pilomaterialy-2.webp"
@@ -135,6 +139,9 @@
                             <p class="goods__prices-cell">20,00 руб/м.п.</p>
                         </li>
                     </ul>
+                    <div class="goods__button">
+                        <a href="#callback" class="button">Оформить заказ</a>
+                    </div>
                 </div>
                 <div class="goods__picture">
                     <img class="goods__picture-img" src="./images/reyka_brus.webp"
@@ -169,6 +176,9 @@
                             <p class="goods__prices-cell">20 000,00 руб/м.куб.</p>
                         </li>
                     </ul>
+                    <div class="goods__button">
+                        <a href="#callback" class="button">Оформить заказ</a>
+                    </div>
                 </div>
                 <div class="goods__picture">
                     <img class="goods__picture-img" src="./images/wooden-plank1.webp"
@@ -177,17 +187,17 @@
             </li>
         </ul>
     </section>
-    <section class="callback">
+    <section class="callback" id="callback">
         <div class="callback__inner section__inner">
             <p class="callback__title">Оставьте заявку и мы свяжемся с Вами</p>
             <form class="callback__form" name="callback" action="/" method="GET">
                 <input class="callback__form-input" type="text" name="callback__form-name" id="callback__form-name"
-                    placeholder="Ваше имя">
+                    placeholder="Ваше имя *">
                 <input class="callback__form-input" type="text" name="callback__form-phone" id="callback__form-phone"
-                    placeholder="+7 (000) 000-00-00">
+                    placeholder="+7 (000) 000-00-00 *">
                 <input class="callback__form-input" type="text" name="callback__form-email" id="callback__form-email"
                     placeholder="Email">
-                <button class="callback__form-submit" type="submit">Отправить</button>
+                <button class="callback__form-submit button" type="submit">Отправить</button>
             </form>
         </div>
     </section>
